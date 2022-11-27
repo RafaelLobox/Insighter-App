@@ -1,10 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 // Home Screens Imports
 import HomeScreen from './src/screens/home/Home';
 import PerfilScreen from './src/screens/home/Perfil';
 import MaquinasScreen from './src/screens/home/Maquinas';
+
 // Auth Screens Imports
 import CadastroScreen from './src/screens/auth/Cadastro';
 import RecuperacaoScreen from './src/screens/auth/Recuperacao';
