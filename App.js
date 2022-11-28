@@ -35,9 +35,9 @@ export default function App() {
   return (
       <NavigationContainer>
 
-        <Stack.Navigator initialRouteName='Home'>
+        <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false,}} >
           {/* Auth Navigation */}
-          <Stack.Screen name='Login' component={LoginScreen}/>
+          <Stack.Screen  name='Login' component={LoginScreen} />
           <Stack.Screen name='Cadastro' component={CadastroScreen}/>
           <Stack.Screen name='Recuperacao' component={RecuperacaoScreen}/>
           {/* Tab-bar Navigation */}
