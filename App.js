@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 // Home Screens Imports
 import HomeScreen from './src/screens/home/Home';
@@ -23,9 +24,11 @@ export default function App() {
   function MyBottomTabs() {
     return (
       <BottomTabs.Navigator>
-        <BottomTabs.Screen name='Home' component={HomeScreen}/>
-        <BottomTabs.Screen name='Perfil' component={PerfilScreen}/>
+        <BottomTabs.Screen  options={{tabBarIcon: (props) => <Ionicons  name='home' />}}  name='Home' component={HomeScreen}/>
         <BottomTabs.Screen name='Maquinas' component={MaquinasScreen}/>
+        <BottomTabs.Screen name='Perfil' component={PerfilScreen}/>
+
+        
       </BottomTabs.Navigator>
    
     )

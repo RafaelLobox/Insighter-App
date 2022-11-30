@@ -1,18 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button} from 'react-native';
 
 export default function LoginScreen() {
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
-        <Text>Login</Text>
-        <Image
-        style={styles.logo}
-        source={require('../../assets/insighter-logo 2.png')}
-      />
-      </View>
+      <View>
+        
 
-      <StatusBar style="auto" />
+      </View>
+      
+      <StatusBar style="none" />
     </View>
   );
 }
