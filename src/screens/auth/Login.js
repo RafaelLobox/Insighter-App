@@ -4,12 +4,21 @@ import { StyleSheet, Text, View, Image, TextInput, Button} from 'react-native';
 export default function LoginScreen() {
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.input}>
+        <TextInput style={styles.inputEmail}
+        placeholder='Email'
+        keyboardType='ascii-capable'
+        placeholderTextColor= '#3540E6'
         
-
+        />
+        <TextInput style={styles.inputPassword}
+        placeholder='Senha'
+        keyboardType='ascii-capable'
+        placeholderTextColor= '#3540E6'
+        />
       </View>
       
-      <StatusBar style="none" />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -20,9 +29,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  logo: {
-    
-
-  },
+  }
 });
