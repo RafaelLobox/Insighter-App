@@ -37,7 +37,7 @@ export default function App() {
             height: '7%',
             borderTopLeftRadius: 15,
             borderTopRightRadius: 15,
-            borderTopColor: '#25e6b1',
+            borderTopColor: '#482EB5',
             borderTopWidth: 2,
             
           }
