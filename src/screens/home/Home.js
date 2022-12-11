@@ -8,11 +8,13 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>        
-        <View style={styles.usernameView}>
+        <View style={styles.usernameViewPerson}>
           <Ionicons name='person' style={styles.iconPerson} size={30} color = "#F6F4F3"  />
           <Text style={styles.username}>Olá, Weslley Rafael!</Text>
+        </View>
+        <View style={styles.viewBell}>
           <MaterialCommunityIcons name='bell' style={styles.iconBell} size={30} color = "#F6F4F3"/>
-        </View>                
+        </View>
       </View>
       {/* <LinearGradient 
      colors={['#6e45e2', '#88d3ce']}
@@ -29,8 +31,8 @@ export default function HomeScreen() {
       
       <View style={styles.space}>
         <View style={styles.lastProblems}>
-          <View style={styles.lastProblemsText}>
-            <Text>Últimas anomalias encontradas</Text>
+          <View style={styles.lastProblemsTextView}>
+            <Text style={styles.lastProblemsText}>Últimas anomalias encontradas</Text>
           </View>
           <View style={styles.lastProblemsSwiper}>
             <View style={styles.problem1}>
@@ -52,7 +54,7 @@ export default function HomeScreen() {
         </View>
       </View>
       
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
     </View>
   );
 }
@@ -60,41 +62,54 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F4F3',    
+    backgroundColor: '#F6F4F3', 
     // alignItems: 'center',
     // justifyContent: 'center',
   },
   header: {
-    backgroundColor: '#F6F4F3',
+    backgroundColor: '#482EB5',
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'center',
-    height: '12%',
+    height: '15%',
     width: '100%',
     // borderBottomLeftRadius: 15,
     // borderBottomRightRadius: 15,
-    paddingBottom: 5,
+    // paddingBottom: 5,
   },
-  usernameView: { 
+  usernameViewPerson: { 
     height: '100%',
-    width: '100%',
-    backgroundColor: '#482EB5',
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    width: '65%',
+    // backgroundColor: '#FFF',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
     // marginTop: '15%',
-    flexDirection: 'row', 
-    paddingTop: 25,
-    
+    flexDirection: 'column', 
+    paddingLeft: '5%',
+    paddingTop: '5%',
+  },
+  viewBell: {
+    height: '100%',
+    width: '35%',
+    // backgroundColor: 'grey',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingRight: '5%',
+    paddingBottom: '4%' //corrigir isso daqui, sobe o sino
   },
   username: {
     color: '#F6F4F3',
     fontSize: 22,
-    fontWeight: 'bold',    
+    fontWeight: 'bold',
+    paddingTop: '6%',    
   },
-  // iconPerson: {
-  //   paddingLeft: '2%',
-  //   marginBottom: '5%'
-  // },
+  iconPerson: {
+    // paddingLeft: '2%',
+    // marginBottom: '5%'
+      justifyContent: 'flex-start',
+      
+  },
   // iconBell: {
   //   paddingRight: '2%',
   //   marginBottom: '5%'
@@ -103,7 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F6F4F3',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '27.6%',
+    height: '28.3%',
     width: '100%',    
   },
   notifications: {
@@ -111,17 +126,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: '95%',
-    width: '95%', 
+    width: '98%', 
     borderRadius: 15, 
   },
   lastProblems: {
     flexDirection: 'column',
     backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-start',
     height: '100%',
-    width: '95%',
+    width: '98%',
     borderRadius: 15,
+  },
+  lastProblemsTextView:{
+    backgroundColor: 'black',
+    // height: '20%',
+    // flexDirection: 'row',
+    // alignItems: 'flex-end',
+    // marginTop: 25,
+  },
+  lastProblemsText:{
+    color: '#482EB5',
+    fontSize: 22,
+    fontWeight: 'bold',
   },
   lastProblemsSwiper: {
     flexDirection: 'row',
@@ -135,38 +162,37 @@ const styles = StyleSheet.create({
   },
   problem1: {
     flexDirection: 'row',
-    backgroundColor: 'grey',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    height: '60%',
-    width: '40%',
-    borderRadius: 15,
-  },
-  problem2: {
-    flexDirection: 'row',
-    backgroundColor: 'grey',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    height: '60%',
-    width: '40%',
-    borderRadius: 15,
-  },
-  problem3: {
-    flexDirection: 'row',
-    backgroundColor: 'grey',
+    backgroundColor: '#482EB5',
     alignItems: 'center',
     justifyContent: 'space-around',
     height: '60%',
     width: '30%',
     borderRadius: 15,
-    display: 'none',
+  },
+  problem2: {
+    flexDirection: 'row',
+    backgroundColor: '#482EB5',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    height: '60%',
+    width: '30%',
+    borderRadius: 15,
+  },
+  problem3: {
+    flexDirection: 'row',
+    backgroundColor: '#482EB5',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    height: '60%',
+    width: '30%',
+    borderRadius: 15,
   },
   count: {
     backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
     height: '95%',
-    width: '95%',
+    width: '98%',
     borderRadius: 15,
   },  
 });

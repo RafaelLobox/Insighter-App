@@ -32,7 +32,7 @@ export default function App() {
         tabBarActiveTintColor: '#482EB5',
         tabBarInactiveTintColor: '#e0d1ee' ,
           tabBarStyle:{
-            position: 'absolute',
+            position: 'relative',
             backgroundColor: '#F6F4F3',
             height: '7%',
             borderTopLeftRadius: 15,
