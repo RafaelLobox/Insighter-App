@@ -1,40 +1,54 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-
+import { VictoryBar, VictoryChart, VictoryTheme, VictoryPie } from "victory-native";
+import { MaterialIcons } from '@expo/vector-icons'; 
+import Swiper from 'react-native-swiper'
+// import { ScrollView } from 'react-native-gesture-handler';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>        
         <View style={styles.usernameViewPerson}>
-          <Ionicons name='person' style={styles.iconPerson} size={30} color = "#F6F4F3"  />
+          <Ionicons name='person' style={styles.iconPerson} size={30} color = "#482EB5"  />
           <Text style={styles.username}>Olá, Weslley Rafael!</Text>
         </View>
         <View style={styles.viewBell}>
-          <MaterialCommunityIcons name='bell' style={styles.iconBell} size={30} color = "#F6F4F3"/>
+          <MaterialCommunityIcons name='bell' style={styles.iconBell} size={30} color = "#482EB5"/>
         </View>
       </View>
-      {/* <LinearGradient 
-     colors={['#6e45e2', '#88d3ce']}
-     style = { styles.container }>
-          <View>
-               //your elements here
-          </View> 
-      </LinearGradient> */}
       <View style={styles.space}>
         <View style={styles.notifications}>
-          <Text>notificações</Text>
+          <View style={styles.warning}> 
+            <MaterialIcons name="dangerous" size={100} color="red" />
+            <Text style={styles.textAnomalia}>Anomalia encontrada!</Text>
+            {/* <Text style={styles.textAnomaliaDescription}>Clique aqui para mais informações</Text> */}
+          </View>
         </View>
       </View>
       
       <View style={styles.space}>
         <View style={styles.lastProblems}>
           <View style={styles.lastProblemsTextView}>
-            <Text style={styles.lastProblemsText}>Últimas anomalias encontradas</Text>
+            <Text style={styles.lastProblemsText}>Últimas anomalias</Text>
           </View>
-          <View style={styles.lastProblemsSwiper}>
+          <Swiper style={styles.wrapper} paginationStyle={{marginBottom:0}}  dotColor={'#e0d1ee'} activeDotColor={'#482EB5'} loop={true} autoplayTimeout ={2} autoplay={true}>
+            <View style={styles.problem}>
+              <Text style={styles.text}>Tava</Text>
+            </View>
+            <View style={styles.problem}>
+              <Text style={styles.text}>Enchendo as garrafas</Text>
+            </View>
+            <View style={styles.problem}>
+              <Text style={styles.text}>E pegando água</Text>
+            </View>
+            <View style={styles.problem}>
+              <Text style={styles.text}>E pegando água</Text>
+            </View>
+          </Swiper>
+          {/* <View style={styles.lastProblemsSwiper}>
             <View style={styles.problem1}>
               <Text>treta 1</Text>
             </View>
@@ -44,18 +58,23 @@ export default function HomeScreen() {
             <View style={styles.problem3}>
               <Text>treta 3</Text>
             </View>
-          </View>
+          </View> */}
         </View>
       </View>
       
       <View style={styles.space}>
         <View style={styles.count}>
-          <Text>contagem</Text>
+        {/* <VictoryPie
+            data={[
+              { x: "Cats", y: 35 },
+              { x: "Dogs", y: 40 },
+              { x: "Birds", y: 55 }
+            ]}
+          /> */}
         </View>
       </View>
-      
       <StatusBar style="dark" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -63,16 +82,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F6F4F3', 
+    fontFamily: 'lucida grande',
     // alignItems: 'center',
     // justifyContent: 'center',
   },
   header: {
-    backgroundColor: '#482EB5',
+    // backgroundColor: '#482EB5',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     height: '15%',
     width: '100%',
+    marginTop: 6,
     // borderBottomLeftRadius: 15,
     // borderBottomRightRadius: 15,
     // paddingBottom: 5,
@@ -99,7 +120,7 @@ const styles = StyleSheet.create({
     paddingBottom: '4%' //corrigir isso daqui, sobe o sino
   },
   username: {
-    color: '#F6F4F3',
+    color: '#482EB5',
     fontSize: 22,
     fontWeight: 'bold',
     paddingTop: '6%',    
@@ -115,84 +136,91 @@ const styles = StyleSheet.create({
   //   marginBottom: '5%'
   // },
   space: {
-    backgroundColor: '#F6F4F3',
+    // backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '28.3%',
+    height: '28.1%',
     width: '100%',    
   },
   notifications: {
-    backgroundColor: '#6048c7',
+    backgroundColor: '#F6F4F3',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '95%',
-    width: '98%', 
+    height: '90%',
+    width: '95%', 
     borderRadius: 15, 
+    elevation: 8,
   },
+  warning:{
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  textAnomalia:{
+    fontSize: 24,
+    fontWeight: 'bold'
+  },
+  textAnomaliaDescription:{
+
+  },
+  
   lastProblems: {
     flexDirection: 'column',
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    // backgroundColor: 'black',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
     height: '100%',
-    width: '98%',
+    width: '100%',
     borderRadius: 15,
   },
   lastProblemsTextView:{
-    backgroundColor: 'black',
-    // height: '20%',
+    backgroundColor: '#F6F4F3',
+    marginLeft:'2.5%',
+    paddingRight:15,
+    paddingLeft:10,
     // flexDirection: 'row',
     // alignItems: 'flex-end',
-    // marginTop: 25,
+    marginBottom: 15,
+    borderRadius: 10,
+    elevation: 4.5,
   },
   lastProblemsText:{
     color: '#482EB5',
     fontSize: 22,
     fontWeight: 'bold',
   },
-  lastProblemsSwiper: {
+  wrapper: {},
+  problem: {
     flexDirection: 'row',
-    // backgroundColor: 'white',
+    backgroundColor: '#F6F4F3',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    height: '100%',
-    width: '100%',
-    // borderRadius: 15,
-    
-  },
-  problem1: {
-    flexDirection: 'row',
-    backgroundColor: '#482EB5',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    height: '60%',
-    width: '30%',
+    justifyContent: 'center',
+    height: '70%',
+    width: '95%',
+    marginTop: 0,
+    marginRight: 'auto',
+    marginBottom: 0,
+    marginLeft: 'auto',
     borderRadius: 15,
+    elevation: 8,
   },
-  problem2: {
-    flexDirection: 'row',
-    backgroundColor: '#482EB5',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    height: '60%',
-    width: '30%',
-    borderRadius: 15,
-  },
-  problem3: {
-    flexDirection: 'row',
-    backgroundColor: '#482EB5',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    height: '60%',
-    width: '30%',
-    borderRadius: 15,
+  text: {
+    color: '#482EB5',
+    fontSize: 30,
+    fontWeight: 'bold'
   },
   count: {
-    backgroundColor: 'blue',
+    backgroundColor: '#F6F4F3',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     height: '95%',
-    width: '98%',
+    width: '95%',
+    marginTop: 0,
+    marginRight: 'auto',
+    marginBottom: 0,
+    marginLeft: 'auto',
     borderRadius: 15,
+    elevation: 8,
   },  
 });

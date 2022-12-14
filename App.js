@@ -34,7 +34,6 @@ export default function App() {
           tabBarStyle:{
             position: 'relative',
             backgroundColor: '#F6F4F3',
-            height: '7%',
             borderTopLeftRadius: 15,
             borderTopRightRadius: 15,
             borderTopColor: '#482EB5',
@@ -65,7 +64,7 @@ export default function App() {
   return (
       <NavigationContainer>
 
-        <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false,}} >
+        <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false,}} >
           {/* Auth Navigation */}
           <Stack.Screen  name='Login' component={LoginScreen} />
           <Stack.Screen name='Cadastro' component={CadastroScreen}/>
