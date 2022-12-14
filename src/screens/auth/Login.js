@@ -20,6 +20,9 @@ export default function LoginScreen(props) {
 
           <Input  label="Senha" iconName='lock' secureTextEntry={true}/>
           <TouchableOpacity
+             onPress={() =>{
+              props.navigation.navigate("Home");
+            }}
           style={{
             height: 55,
             width: '100%',
@@ -32,10 +35,7 @@ export default function LoginScreen(props) {
       
           }}>
           <Text
-           onPress={() =>{
-            props.navigation.navigate("Home");
-          }}
-           style={{color: 'white', fontWeight: 'bold', fontSize: 18}}>
+           style={{color: '#F6F4F3', fontWeight: 'bold', fontSize: 18}}>
             Entrar
           </Text>
         </TouchableOpacity>
@@ -50,6 +50,7 @@ export default function LoginScreen(props) {
           }}>Ainda não tem uma contra?cadastre-se</Text>
         </View>
       </ScrollView>
+      <StatusBar style="auto" />
     </SafeAreaView>
 
     

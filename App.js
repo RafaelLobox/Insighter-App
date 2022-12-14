@@ -2,14 +2,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import Feather from '@expo/vector-icons/Feather';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 // Home Screens Imports
 import HomeScreen from './src/screens/home/Home';
 import PerfilScreen from './src/screens/home/Perfil';
 import MaquinasScreen from './src/screens/home/Maquinas';
-
+import NotificationScreen from './src/screens/home/Notificaction';
 // Auth Screens Imports
 import CadastroScreen from './src/screens/auth/Cadastro';
 import RecuperacaoScreen from './src/screens/auth/Recuperacao';
@@ -29,15 +28,14 @@ export default function App() {
       screenOptions = {{
         headerShown: false, 
         tabBarShowLabel: false, 
-        tabBarActiveTintColor: '#482EB5',
-        tabBarInactiveTintColor: '#e0d1ee' ,
+        tabBarActiveTintColor: '#F6F4F3',
+        tabBarInactiveTintColor: '#9aa0a6' ,
           tabBarStyle:{
             position: 'relative',
-            backgroundColor: '#F6F4F3',
+            backgroundColor: '#3540e6',
             borderTopLeftRadius: 15,
             borderTopRightRadius: 15,
-            borderTopColor: '#482EB5',
-            borderTopWidth: 2,
+            
             
           }
         }}>
@@ -73,6 +71,8 @@ export default function App() {
           <Stack.Screen name='Home' component={MyBottomTabs}/>
           <Stack.Screen name='Perfil' component={MyBottomTabs}/>
           <Stack.Screen name='Maquinas' component={MyBottomTabs}/>
+          <Stack.Screen  name='Notificacoes' component={NotificationScreen} />
+          
 
         </Stack.Navigator>
 

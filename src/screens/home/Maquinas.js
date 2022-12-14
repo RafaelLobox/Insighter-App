@@ -3,13 +3,18 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { FlatList, TouchableOpacity} from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-
-export default function MaquinasScreen() {
+export default function MaquinasScreen(props) {
   return (
     <SafeAreaView>
       <View style={styles.header}>
-        <Text style={{fontSize: 20, fontWeight: 'bold'}}>Máquinas</Text>
+        <Icon
+            onPress={() =>{
+              props.navigation.navigate("Home");
+            }}
+          name='keyboard-backspace' size={25}/>
+        <Text style={{fontSize: 20, fontWeight: 'bold', paddingLeft: 12}}>Máquinas</Text>
       </View>
       <View style={styles.footer}>
         <TouchableOpacity >

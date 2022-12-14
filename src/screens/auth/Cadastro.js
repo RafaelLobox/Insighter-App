@@ -33,7 +33,7 @@ export default function CadastroScreen(props) {
             borderBottomLeftRadius: 10,
       
           }}>
-          <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18}}>
+          <Text style={{color: '#F6F4F3', fontWeight: 'bold', fontSize: 18}}>
             Cadastre-se
           </Text>
         </TouchableOpacity>
@@ -48,6 +48,7 @@ export default function CadastroScreen(props) {
           }} >já tem uma conta?Login</Text>
         </View>
     </ScrollView>
+    <StatusBar style="auto" />
   </SafeAreaView>
    
   );
