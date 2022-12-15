@@ -1,11 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, FlatList, TouchableOpacity } from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { VictoryBar, VictoryChart, VictoryTheme, VictoryPie } from "victory-native";
-import { MaterialIcons } from '@expo/vector-icons'; 
 import COLORS from '../../components/Colors';
-import Swiper from 'react-native-swiper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Latest from '../../components/Latest';
 import LatestMachines from '../../components/LatestMachines';
@@ -95,72 +90,6 @@ export default function HomeScreen(props) {
       </ScrollView>
       <StatusBar style="auto" />
     </SafeAreaView>
-    // <SafeAreaView style={styles.container}>
-    //   <View style={styles.header}>        
-    //     <View style={styles.usernameViewPerson}>
-    //       <Ionicons name='person' style={styles.iconPerson} size={30} color = "#482EB5"  />
-    //       <Text style={styles.username}>Olá, Weslley Rafael!</Text>
-    //     </View>
-    //     <View style={styles.viewBell}>
-    //       <MaterialCommunityIcons name='bell' style={styles.iconBell} size={30} color = "#482EB5"/>
-    //     </View>
-    //   </View>
-    //   <View style={styles.space}>
-    //     <View style={styles.notifications}>
-    //       <View style={styles.warning}> 
-    //         <MaterialIcons name="dangerous" size={100} color="red" />
-    //         <Text style={styles.textAnomalia}>Anomalia encontrada!</Text>
-    //         {/* <Text style={styles.textAnomaliaDescription}>Clique aqui para mais informações</Text> */}
-    //       </View>
-    //     </View>
-    //   </View>
-      
-    //   <View style={styles.space}>
-    //     <View style={styles.lastProblems}>
-    //       <View style={styles.lastProblemsTextView}>
-    //         <Text style={styles.lastProblemsText}>Últimas anomalias</Text>
-    //       </View>
-    //       <Swiper style={styles.wrapper} paginationStyle={{marginBottom:0}}  dotColor={'#e0d1ee'} activeDotColor={'#482EB5'} loop={true} autoplayTimeout ={2} autoplay={true}>
-    //         <View style={styles.problem}>
-    //           <Text style={styles.text}>Tava</Text>
-    //         </View>
-    //         <View style={styles.problem}>
-    //           <Text style={styles.text}>Enchendo as garrafas</Text>
-    //         </View>
-    //         <View style={styles.problem}>
-    //           <Text style={styles.text}>E pegando água</Text>
-    //         </View>
-    //         <View style={styles.problem}>
-    //           <Text style={styles.text}>E pegando água</Text>
-    //         </View>
-    //       </Swiper>
-    //       {/* <View style={styles.lastProblemsSwiper}>
-    //         <View style={styles.problem1}>
-    //           <Text>treta 1</Text>
-    //         </View>
-    //         <View style={styles.problem2}>
-    //           <Text>treta 2</Text>
-    //         </View>
-    //         <View style={styles.problem3}>
-    //           <Text>treta 3</Text>
-    //         </View>
-    //       </View> */}
-    //     </View>
-    //   </View>
-      
-    //   <View style={styles.space}>
-    //     <View style={styles.count}>
-    //     {/* <VictoryPie
-    //         data={[
-    //           { x: "Cats", y: 35 },
-    //           { x: "Dogs", y: 40 },
-    //           { x: "Birds", y: 55 }
-    //         ]}
-    //       /> */}
-    //     </View>
-    //   </View>
-    //   <StatusBar style="dark" />
-    // </SafeAreaView>
   );
 }
 

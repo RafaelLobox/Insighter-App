@@ -18,45 +18,46 @@ export default function PerfilScreen(props) {
       <View style={styles.userInfoSection}>
         <View style={styles.userInfoHeader}>
           <View style={{flexDirection: 'row', marginTop: 15}}>
-          <Image
-        style={styles.profilePicture}
-        source={require('../../assets/Perfil.jpg')}
-        /> 
+          {/* <Image
+          style={styles.profilePicture}
+          source={require('../../assets/avatar.png')}
+          />  */}
             <View style={{marginLeft: 20}}>
               <Text style={[styles.userName,{marginTop:15, marginBottom: 5}]}>Weslley Lobo</Text>
               <Text style={styles.caption}>Industry@gmail</Text>
             </View>
-          </View>   
+        </View>   
           
-          <View style={styles.userAdressView}>
-            <View style={styles.row}>
-              <Icon style={styles.icon} name='home' color={COLORS.grey} size={20}/>
-              <Text style={{color: COLORS.grey}}>La Plata,Argentina</Text>
-            </View>
-            <View style={styles.row}>
-              <Icon style={styles.icon} name='phone' color={COLORS.grey} size={20}/>
-              <Text style={{color: COLORS.grey}}>81 9917-2155</Text>
-            </View>
-            <View style={styles.row}>
-              <Icon style={styles.icon} name='email' color={COLORS.grey} size={20}/>
-              <Text style={{color: COLORS.grey}}>rafaelweslley99@gmail.com</Text>
-            </View>
-          </View> 
-        </View>
-        <View style={styles.infoBoxWrapper}>
-          <View style={[styles.infoBox, {
-            borderRightColor: '#dddddd',
-            borderRightWidth: 1
-          }]}>
-            <Text  style={styles.userName}>13</Text>
-            <Text style={styles.caption} >Manutenções</Text>
+        <View style={styles.userAdressView}>
+          <View style={styles.row}>
+            <Icon style={styles.icon} name='home' color={COLORS.grey} size={20}/>
+            <Text style={{color: COLORS.grey}}>La Plata,Argentina</Text>
           </View>
-          <View style={styles.infoBox}>
-            <Text style={styles.userName}>12</Text>
-            <Text style={styles.caption}>Maquinas cadastradas</Text>
+          <View style={styles.row}>
+            <Icon style={styles.icon} name='phone' color={COLORS.grey} size={20}/>
+            <Text style={{color: COLORS.grey}}>81 9917-2155</Text>
           </View>
-        </View>     
+          <View style={styles.row}>
+            <Icon style={styles.icon} name='email' color={COLORS.grey} size={20}/>
+            <Text style={{color: COLORS.grey}}>rafaelweslley99@gmail.com</Text>
+          </View>
+        </View> 
       </View>
+
+      <View style={styles.infoBoxWrapper}>
+        <View style={[styles.infoBox, {
+          borderRightColor: '#dddddd',
+          borderRightWidth: 1
+        }]}>
+          <Text  style={styles.userName}>13</Text>
+          <Text style={styles.caption} >Manutenções</Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text style={styles.userName}>12</Text>
+          <Text style={styles.caption}>Maquinas cadastradas</Text>
+        </View>
+      </View>     
+    </View>
 
       
       <View style={styles.menuWrapper}>
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
   },
   userInfoHeader: {
     marginLeft: 25,
-    marginBottom: 25,
+    marginBottom: 15,
   },
   profilePicture: {
     width:120,
@@ -131,6 +132,9 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 24,
     fontWeight: 'bold',
+  },
+  userAdressView:{
+    marginTop:20,
   },
   caption: {
     fontSize: 14,

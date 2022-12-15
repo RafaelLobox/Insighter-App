@@ -1,9 +1,50 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons'; 
-import { FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import ListMaquinas from '../../components/Listmaquinas';
+
+const List = [
+  {
+    id: 1,
+    maquina: 'Fatiadora',
+    date: '12/12/12'
+  },
+  {
+    id: 1,
+    maquina: 'Fatiadora',
+    date: '12/12/12'
+  },
+  {
+    id: 1,
+    maquina: 'Fatiadora',
+    date: '12/12/12'
+  },
+  {
+    id: 1,
+    maquina: 'Fatiadora',
+    date: '12/12/12'
+  },
+  {
+    id: 1,
+    maquina: 'Fatiadora',
+    date: '12/12/12'
+  },
+  {
+    id: 1,
+    maquina: 'Fatiadora',
+    date: '12/12/12'
+  },
+  {
+    id: 1,
+    maquina: 'Fatiadora',
+    date: '12/12/12'
+  },
+  
+]
+
+
 
 export default function MaquinasScreen(props) {
   return (
@@ -16,6 +57,17 @@ export default function MaquinasScreen(props) {
           name='keyboard-backspace' size={25}/>
         <Text style={{fontSize: 20, fontWeight: 'bold', paddingLeft: 12}}>Máquinas</Text>
       </View>
+      
+      <FlatList
+        style={styles.list}
+        data={List}
+        keyExtractor={(item) =>String(item.id)}
+        showsVerticalScrollIndicator={false}
+        renderItem={({item}) =>  <ListMaquinas data={item}/>}
+      />
+
+
+
       <View style={styles.footer}>
         <TouchableOpacity>
 
@@ -54,71 +106,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  list:{
+    marginTop: 5,
+    marginStart: 14,
+    marginEnd: 14,
+  }
   
 });
 
-// import React, { Component } from 'react'
-// import { AppRegistry, StyleSheet, Text, View } from 'react-native'
- 
-// import Swiper from 'react-native-swiper'
- 
-// const styles = StyleSheet.create({
-//   wrapper: {},
-//   problem1: {
-//     flexDirection: 'row',
-//     backgroundColor: '#482EB5',
-//     alignItems: 'center',
-//     justifyContent: 'space-around',
-//     height: '60%',
-//     width: '100%',
-//     borderRadius: 15,
-//   },
-//   problem2: {
-//     flexDirection: 'row',
-//     backgroundColor: '#482EB5',
-//     alignItems: 'center',
-//     justifyContent: 'space-around',
-//     height: '60%',
-//     width: '100%',
-//     borderRadius: 15,
-//   },
-//   problem3: {
-//     flexDirection: 'row',
-//     backgroundColor: '#482EB5',
-//     alignItems: 'center',
-//     justifyContent: 'space-around',
-//     height: '60%',
-//     width: '100%',
-//     borderRadius: 15,
-//   },
-//   text: {
-//     color: '#fff',
-//     fontSize: 30,
-//     fontWeight: 'bold'
-//   }
-// })
- 
-// export default function MaquinasScreen() {
-//   return (
-//     <Swiper style={styles.wrapper} loop={true} autoplayTimeout ={4} autoplay={true}>
-//         <View style={styles.problem1}>
-//           <Text style={styles.text}>Tava</Text>
-//         </View>
-//         <View style={styles.problem2}>
-//           <Text style={styles.text}>Enchendo as garrafas</Text>
-//         </View>
-//         <View style={styles.problem3}>
-//           <Text style={styles.text}>E pegando água</Text>
-//         </View>
-//     </Swiper>
-//   );
-// }
-// // export default class SwiperComponent extends Component {
-// //   render() {
-// //     return (
-      
-// //     )
-// //   }
-// // }
- 
-// // AppRegistry.registerComponent('myproject', () => SwiperComponent)

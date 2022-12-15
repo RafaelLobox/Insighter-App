@@ -21,37 +21,29 @@ class IndustriaService {
   }
 
   async cadastrar(data) {
-    const token = await AsyncStorage.getItem("TOKEN");
-
     return axios
-    .post(`${URL}industrias`, {
-      nome: data.nome,
-      cnpj: data.cnpj,
-      telefone: data.telefone,
-      email: data.email,
-      cep: data.cep,
-      uf: data.uf,
-      cidade: data.cidade,
-      bairro: data.bairro,
-      rua: data.rua,
-      numero: data.numero,
-      senha: data.senha,
-      status: "true",
-    }, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((response) => {
-      return Promise.resolve(response);
-    })
-    .catch((error) => {
-      console.log("errou");
-      return Promise.reject(error);
-    });
+      .post(`${URL}industrias`, {
+        nome: data.nome,
+        cnpj: data.cnpj,
+        telefone: data.telefone,
+        email: data.email,
+        cep: data.cep,
+        uf: data.uf,
+        cidade: data.cidade,
+        bairro: data.bairro,
+        rua: data.rua,
+        numero: data.numero,
+        senha: data.senha,
+        status: "true",
+      })
+      .then((response) => {
+        return Promise.resolve(response);
+      })
+      .catch((error) => {
+        console.log("errou");
+        return Promise.reject(error);
+      });
   }
-
-
 
   async listarIndustria() {
     const token = await AsyncStorage.getItem("TOKEN");

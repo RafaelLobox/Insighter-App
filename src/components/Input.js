@@ -8,11 +8,14 @@ const Input = ({
     label,
     iconName,
     error,
+    right,
     password,
     onFocus = () => {},
     ...props
   }) => {
     return(
+
+      <View>
         <View style={{marginBottom: 20,}}>
             <Text style={style.label}>{label}</Text>
             <View style={style.inputContainer}>
@@ -20,6 +23,18 @@ const Input = ({
             <TextInput autoCorrect={false} style= {{color: 'black' , flex:1}}  {...props} />
             </View>
         </View>
+
+        {right &&
+        <View style={{marginBottom: 20,}}>
+            <Text style={style.label}>{label}</Text>
+            <View style={style.inputContainer}>
+            <Icon name={iconName} style={{color: 'red', fontSize: 20, marginRight: 10,marginTop: 15}}/>
+            <TextInput autoCorrect={false} style= {{color: 'black' , flex:1}}  {...props} />
+            </View>
+        </View>
+        }
+      </View>
+        
     );
 
   };

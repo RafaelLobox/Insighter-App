@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Switch } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../../components/Colors';
+
 
 export default function SegurancaScreen(props) {
   return (
@@ -12,8 +13,9 @@ export default function SegurancaScreen(props) {
                 props.navigation.navigate("Home");
               }}
             name='keyboard-backspace'  size={25}   />
-            <Text style={{fontSize: 20, fontWeight: 'bold', paddingLeft: 12}}>Notificações</Text>
+            <Text style={{fontSize: 20, fontWeight: 'bold', paddingLeft: 12}}>Segurança</Text>
         </View>
+        
         <StatusBar style="auto" />
     </SafeAreaView>
     

@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import COLORS from "./Colors";
+
 export default function Latest({ data }) {
   return (
     <TouchableOpacity style={styles.container}>

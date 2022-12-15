@@ -1,28 +1,89 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { MaterialIcons } from '@expo/vector-icons'; 
-import { FlatList, TouchableOpacity} from 'react-native-gesture-handler';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image, Animated, VirtualizedList, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import COLORS from '../../components/Colors';
+import { VictoryBar, VictoryChart, VictoryTheme, VictoryLine } from "victory-native";
+
 
 export default function DashMaquinas(props) {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1 , backgroundColor: COLORS.white}}>
       <View style={styles.header}>
         <Icon
             onPress={() =>{
               props.navigation.navigate("Home");
             }}
           name='keyboard-backspace' size={25}/>
-        <Text style={{fontSize: 20, fontWeight: 'bold', paddingLeft: 12}}>Máquinas</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold', paddingLeft: 12}}>Dash Máquinas</Text>
       </View>
-      <View style={styles.footer}>
-        <TouchableOpacity >
-            <View style={styles.iconContainer}>
-              <MaterialIcons name="add" color="white" size={30} />
-            </View>
-        </TouchableOpacity>
-      </View>
+      <ScrollView style={styles.chart}>
+        <View style={styles.boxChart}>
+         <Text style={styles.title}>Últimas Máquinas cadastradas</Text>
+
+          <VictoryChart theme={VictoryTheme.material}>
+            <VictoryLine
+                style={{
+                  interpolation:"natural",
+                  data: { stroke: COLORS.blue },
+                  parent: { border: "1px solid #ccc"}
+                }}
+                data={[
+                    { x: 1, y: 2 },
+                    { x: 2, y: 3 },
+                    { x: 3, y: 5 },
+                    { x: 4, y: 4 },
+                    { x: 5, y: 7 }
+              ]}
+              />
+          </VictoryChart>
+        </View>
+        <View style={styles.boxChart}>
+         <Text style={styles.title}>Últimas Máquinas cadastradas</Text>
+
+          <VictoryChart theme={VictoryTheme.material}>
+            <VictoryLine
+                style={{
+                  interpolation:"natural",
+                  data: { stroke: COLORS.blue },
+                  parent: { border: "1px solid #ccc"}
+                }}
+                data={[
+                    { x: 1, y: 2 },
+                    { x: 2, y: 3 },
+                    { x: 3, y: 5 },
+                    { x: 4, y: 4 },
+                    { x: 5, y: 7 }
+              ]}
+              />
+          </VictoryChart>
+        </View>
+        <View style={styles.boxChart}>
+         <Text style={styles.title}>Últimas Máquinas cadastradas</Text>
+
+          <VictoryChart theme={VictoryTheme.material}>
+            <VictoryLine
+                style={{
+                  interpolation:"natural",
+                  data: { stroke: COLORS.blue },
+                  parent: { border: "1px solid #ccc"}
+                }}
+                data={[
+                    { x: 1, y: 2 },
+                    { x: 2, y: 3 },
+                    { x: 3, y: 5 },
+                    { x: 4, y: 4 },
+                    { x: 5, y: 7 }
+              ]}
+              />
+          </VictoryChart>
+        </View>
+
+
+      </ScrollView>
+      
+
+
+     
         <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -51,6 +112,21 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  chart:{
+    elevation:60,
+  },
+  boxChart:{
+    backgroundColor: COLORS.white,
+    // marginTop: 20,
+    elevation: 5,
+  },
+  title:{
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 14,
+    marginRight: 14,
+    marginTop: 25,
   },
   
 });

@@ -31,7 +31,7 @@ export default function LoginScreen(props) {
       <ImageBackground  
     source={require('../../assets/background2.png')} 
     style={{width: '100%', height: '100%'}} resizeMode='cover' 
->
+      >
       <ScrollView
       contentContainerStyle={{
         paddingTop: 90,
@@ -78,7 +78,7 @@ export default function LoginScreen(props) {
           textAlign:"center", 
           fontSize: 16, 
           fontWeight: 'bold' 
-          }}>Ainda não tem uma contra?cadastre-se</Text>
+          }}>Ainda não tem uma conta? cadastre-se</Text>
         </View>
       </ScrollView>
       <StatusBar style="auto" />
