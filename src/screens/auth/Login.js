@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput,SafeAreaView, ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput,SafeAreaView, ScrollView, TouchableOpacity, ImageBackground} from 'react-native';
 import Input from '../../components/Input';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 
 export default function LoginScreen(props) {
   return (
     <SafeAreaView style={{backgroundColor:'#F6F4F3', flex: 1}}>
+      <ImageBackground  
+    source={require('../../assets/background.png')} 
+    style={{width: '100%', height: '100%'}} resizeMode='cover' 
+>
       <ScrollView
       contentContainerStyle={{
         paddingTop: 90,
@@ -51,6 +54,7 @@ export default function LoginScreen(props) {
         </View>
       </ScrollView>
       <StatusBar style="auto" />
+      </ImageBackground>
     </SafeAreaView>
 
     

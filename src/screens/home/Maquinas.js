@@ -17,9 +17,12 @@ export default function MaquinasScreen(props) {
         <Text style={{fontSize: 20, fontWeight: 'bold', paddingLeft: 12}}>Máquinas</Text>
       </View>
       <View style={styles.footer}>
-        <TouchableOpacity >
+        <TouchableOpacity>
+
             <View style={styles.iconContainer}>
-              <MaterialIcons name="add" color="white" size={30} />
+              <MaterialIcons   onPress={() =>{
+              props.navigation.navigate("CadastroMaquinas");
+            }} name="add" color="white" size={30} />
             </View>
         </TouchableOpacity>
       </View>

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../../components/Colors';
 
-export default function NotificationScreen(props) {
+export default function TermosScreen(props) {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white }}>
         <View style={styles.header}>
