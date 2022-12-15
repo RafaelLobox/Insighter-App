@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity, ImageBackground} from 'react-native';
 import Input from '../../components/Input';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import COLORS from '../../components/Colors';
 
 export default function CadastroScreen(props) {
   return (
@@ -18,7 +18,7 @@ export default function CadastroScreen(props) {
         paddingHorizontal: 20,
       }}>
         <Text style={{color: 'black', fontSize: 40, fontWeight: 'bold'}}>Cadastro</Text>
-        <Text style={{color: 'grey', fontSize: 18, marginVertical: 10}}>Informe seus Dados</Text>
+        <Text style={{color: COLORS.grey, fontSize: 18, marginVertical: 10}}>Insira os dados da sua empresa</Text>
         <View style={{marginVertical: 20}}>
           <Input  label="Nome da Empresa" iconName='robot-industrial'/>
           <Input  label="CNPJ" iconName='file-document'/>
@@ -44,7 +44,7 @@ export default function CadastroScreen(props) {
       
           }}>
           <Text style={{color: '#F6F4F3', fontWeight: 'bold', fontSize: 18}}>
-            Cadastre-se
+            Cadastrar
           </Text>
         </TouchableOpacity>
         <Text

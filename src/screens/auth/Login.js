@@ -4,6 +4,7 @@ import Input from '../../components/Input';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import React, { useState } from "react";
 import industriaService from "../../services/IndustriaService";
+import COLORS from '../../components/Colors';
 
 export default function LoginScreen(props) {
   const [email, setEmail] = useState("");
@@ -37,7 +38,7 @@ export default function LoginScreen(props) {
         paddingHorizontal: 20,
       }}>
         <Text style={{color: 'black', fontSize: 40, fontWeight: 'bold'}}>Login</Text>
-        <Text style={{color: 'grey', fontSize: 18, marginVertical: 10}}>Informe seus Dados</Text>
+        <Text style={{color: COLORS.grey, fontSize: 18, marginVertical: 10}}>Informe seus Dados</Text>
         <View style={{marginVertical: 20}}>
           <Input
             label="Email"
