@@ -9,46 +9,46 @@ import Swiper from 'react-native-swiper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Latest from '../../components/Latest';
 import LatestMachines from '../../components/LatestMachines';
-
-const List = [
-  {
-    id: 1,
-    maquina: 'Extrusora',
-    industry: 'Zé Ramalho',
-    date: '01/12/2002',
-    status: 'Aguardando Manutenção',
-  },
-  {
-    id: 2,
-    maquina: 'Extrusora',
-    industry: 'Zé Ramalho',
-    date: '01/12/2002',
-    status: 'Pronta',
-  },
-  {
-    id: 3,
-    maquina: 'Extrusora',
-    industry: 'Zé Ramalho',
-    date: '01/12/2002',
-    status: 'Pronta',
-  },
-  {
-    id: 4,
-    maquina: 'Extrusora',
-    industry: 'Zé Ramalho',
-    date: '01/12/2002',
-    status: 'Pronta',
-  },
-  {
-    id: 5,
-    maquina: 'Extrusora',
-    industry: 'Zé Ramalho',
-    date: '01/12/2002',
-    status: 'Aguardando Manutenção',
-  },
-]
+import { useEffect, useState } from "react";
+import industriaService from "../../services/IndustriaService";
+import logMaquinaService from "../../services/LogMaquinaService";
+import maquinaService from "../../services/MaquinaService";
 
 export default function HomeScreen(props) {
+  const [industria, setIndustria] = useState("");
+  const [anomalias, setAnomalias] = useState([]);
+  const [maquinas, setMaquinas] = useState([]);
+
+  useEffect(() => {
+    industriaService
+      .listarIndustria()
+      .then((response) => {
+        setIndustria(response.data[0]);
+      })
+      .catch((error) => {
+        Alert.alert("Você não está mais logado.1");
+        props.navigation.navigate("Login");
+      });
+    logMaquinaService
+      .listarLogMaquina()
+      .then((response) => {
+        setAnomalias(response.data);
+      })
+      .catch((error) => {
+        Alert.alert("Você não está mais logado.2");
+        props.navigation.navigate("Login");
+      });
+    maquinaService
+      .listarMaquina()
+      .then((response) => {
+        setMaquinas(response.data);
+      })
+      .catch((error) => {
+        Alert.alert("Você não está mais logado.3");
+        props.navigation.navigate("Login");
+      });
+  }, []);
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white }}>
       <View style={styles.header}>
@@ -57,8 +57,8 @@ export default function HomeScreen(props) {
             Seja Bem-vindo!
           </Text>
           <View style={{flexDirection: 'row'}}>
-            <Text style={{fontSize: 30, fontWeight: 'bold'}}>Olá,</Text>
-            <Text style={{fontSize: 30, fontWeight: 'bold', color: COLORS.blue}}>Weslley!</Text>
+            <Text style={{fontSize: 30, fontWeight: 'bold'}}>Olá, </Text>
+            <Text style={{fontSize: 30, fontWeight: 'bold', color: COLORS.blue}}>{industria.nome}!</Text>
           </View>
         </View>
         <Icon 
@@ -81,12 +81,12 @@ export default function HomeScreen(props) {
           </View>
         </TouchableOpacity>
         <Text style={styles.title}>Últimas Máquinas cadastradas</Text>
-        <LatestMachines/>
+        <LatestMachines data={maquinas} />
         <Text style={styles.title}>Últimas Anomalias</Text>
 
         <FlatList 
           style={styles.list}
-          data={List}
+          data={anomalias}
           keyExtractor={ (item) => String(item.id) }
           showsVerticalScrollIndicator={false}
           renderItem={({item}) => <Latest data={item}/>}

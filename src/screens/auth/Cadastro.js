@@ -8,8 +8,8 @@ export default function CadastroScreen(props) {
   return (
 
     <SafeAreaView style={{backgroundColor:'#F6F4F3', flex: 1}}>
-            <ImageBackground  
-    source={require('../../assets/background.png')} 
+        <ImageBackground  
+    source={require('../../assets/background2.png')} 
     style={{width: '100%', height: '100%'}} resizeMode='cover' 
 >
       <ScrollView
@@ -20,10 +20,17 @@ export default function CadastroScreen(props) {
         <Text style={{color: 'black', fontSize: 40, fontWeight: 'bold'}}>Cadastro</Text>
         <Text style={{color: 'grey', fontSize: 18, marginVertical: 10}}>Informe seus Dados</Text>
         <View style={{marginVertical: 20}}>
-          <Input  label="Email" iconName='email'/>
           <Input  label="Nome da Empresa" iconName='robot-industrial'/>
+          <Input  label="CNPJ" iconName='file-document'/>
           <Input  label="Telefone" iconName='phone'/>
-          <Input  label="Senha" iconName='lock' secureTextEntry={true}/>
+          <Input  label="E-mail" iconName='email'/>
+          <Input  label="CEP" iconName='city'/>
+          <Input  label="UF" iconName='city'/>
+          <Input  label="Cidade" iconName='city'/>
+          <Input  label="Bairro" iconName='city'/>
+          <Input  label="Rua" iconName='city'/>
+          <Input  label="Número" iconName='home'/>
+          <Input  label="Senha" iconName='lock'/>
           <TouchableOpacity
           style={{
             height: 55,

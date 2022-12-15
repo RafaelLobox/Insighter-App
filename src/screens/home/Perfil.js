@@ -161,6 +161,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 15,
     paddingHorizontal: 30,
+    borderBottomWidth: 0.5,
+    borderBottomColor: COLORS.blue
   },
   menuItemText: {
     color: '#777777',
