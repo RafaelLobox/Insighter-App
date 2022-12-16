@@ -10,7 +10,7 @@ export default function ListMaquinas({ data }) {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        navigation.navigate("DashMaquinas");
+        navigation.navigate("DashMaquinas", {id: data.id});
       }}
     >
   <Icon

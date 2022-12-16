@@ -1,10 +1,33 @@
-import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import React, { useEffect, useState } from "react";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import COLORS from "./Colors";
+import maquinaService from "../services/MaquinaService";
+import { useNavigation } from "@react-navigation/native";
 
-const Open = () => {
+const Open = (id) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
+
+  const deletar = () => {
+    maquinaService
+      .deletarMaquina(id.id)
+      .then((response) => {
+        Alert.alert("Máquina deletada com sucesso.");
+        navigation.navigate("Maquinas");
+      })
+      .catch((error) => {
+        Alert.alert("Falha ao deletar máquina.");
+      });
+  };
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -19,19 +42,21 @@ const Open = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Tem Certeza? </Text>
-            <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Cancelar</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.button, styles.buttonDelete]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Deletar</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: "row" }}>
+              <TouchableOpacity
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Cancelar</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.button, styles.buttonDelete]}
+                onPress={() => {setModalVisible(!modalVisible), deletar()}}
+              >
+                <Text style={styles.textStyle}>
+                  Deletar
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -40,7 +65,7 @@ const Open = () => {
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}
       >
-        <Icon name="trash-can" size={24}  color={COLORS.white}  />
+        <Icon name="trash-can" size={24} color={COLORS.white} />
       </TouchableOpacity>
     </View>
   );
@@ -63,44 +88,40 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
   },
   button: {
     padding: 10,
     elevation: 2,
-
-     
   },
   buttonOpen: {
     backgroundColor: COLORS.red,
     borderRadius: 24,
-
   },
   buttonClose: {
     backgroundColor: COLORS.blue,
     marginRight: 23,
     padding: 10,
-    borderRadius: 5
-
+    borderRadius: 5,
   },
   buttonDelete: {
     backgroundColor: COLORS.red,
-    padding:10,
-    borderRadius: 5
+    padding: 10,
+    borderRadius: 5,
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 });
 
 export default Open;

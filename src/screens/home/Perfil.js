@@ -18,10 +18,7 @@ export default function PerfilScreen(props) {
       <View style={styles.userInfoSection}>
         <View style={styles.userInfoHeader}>
           <View style={{flexDirection: 'row', marginTop: 15}}>
-          {/* <Image
-          style={styles.profilePicture}
-          source={require('../../assets/avatar.png')}
-          />  */}
+          <Icon name='account' size={80}/>
             <View style={{marginLeft: 20}}>
               <Text style={[styles.userName,{marginTop:15, marginBottom: 5}]}>Weslley Lobo</Text>
               <Text style={styles.caption}>Industry@gmail</Text>
@@ -165,8 +162,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 15,
     paddingHorizontal: 30,
-    borderBottomWidth: 0.5,
-    borderBottomColor: COLORS.blue
+   
   },
   menuItemText: {
     color: '#777777',

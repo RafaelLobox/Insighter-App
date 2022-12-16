@@ -39,33 +39,32 @@ export default function MaquinasScreen(props) {
           name="keyboard-backspace"
           size={25}
         />
-        <Text style={{ fontSize: 20, fontWeight: "bold", paddingLeft: 12 }}>
+        <Text style={{ fontSize: 20, fontWeight: "bold", marginEnd: 170}}>
           Máquinas
         </Text>
+        <TouchableOpacity>
+            <View style={styles.iconContainer}>
+              <MaterialIcons
+                onPress={() => {
+                  props.navigation.navigate("CadastroMaquinas");
+                }}
+                name="add"
+                color="white"
+                size={30}
+              />
+            </View>
+          </TouchableOpacity>
       </View>
       <ScrollView>
-      <FlatList
-        style={styles.list}
-        data={maquinas}
-        keyExtractor={(item) => String(item.id)}
-        showsVerticalScrollIndicator={false}
-        renderItem={({ item }) => <ListMaquinas data={item} />}
-      />
+        <FlatList
+          style={styles.list}
+          data={maquinas}
+          keyExtractor={(item) => String(item.id)}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => <ListMaquinas data={item} />}
+        />
 
-      <View style={styles.footer}>
-        <TouchableOpacity>
-          <View style={styles.iconContainer}>
-            <MaterialIcons
-              onPress={() => {
-                props.navigation.navigate("CadastroMaquinas");
-              }}
-              name="add"
-              color="white"
-              size={30}
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
+       
       </ScrollView>
       <StatusBar style="auto" />
     </SafeAreaView>
@@ -78,6 +77,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginHorizontal: 20,
+    justifyContent: 'space-between'
   },
   footer: {
     justifyContent: "flex-end",
@@ -87,8 +87,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   iconContainer: {
-    height: 50,
-    width: 50,
+    padding: 8,
     backgroundColor: "blue",
     // elevation: 40,
     borderRadius: 25,
