@@ -82,7 +82,9 @@ export default function PerfilScreen(props) {
             <Text style={styles.menuItemText}>Termos</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() =>{
+              props.navigation.navigate("Login");
+            }}>
           <View style={styles.menuItem}>
             <Icon name="door-open" color={COLORS.red} size={25}/>
             <Text style={styles.menuItemText}>Sair</Text>

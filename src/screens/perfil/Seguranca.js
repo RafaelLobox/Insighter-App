@@ -17,7 +17,23 @@ export default function SegurancaScreen(props) {
             <Text style={{fontSize: 20, fontWeight: 'bold', paddingLeft: 12}}>Segurança</Text>
         </View>
 
-        <Toggle/>
+        <View style={styles.menuItem}>
+            <Icon name="bell" color={COLORS.blue} size={25}/>
+            <Text style={styles.menuItemText}>Notificações</Text>
+            <Toggle/>
+        </View>
+        <View style={styles.menuItem}>
+            <Icon name="email" color={COLORS.blue} size={25}/>
+            <Text style={styles.menuItemText}>Alertas por E-mail</Text>
+            <Toggle/>
+        </View>
+        <View style={styles.menuItem}>
+            <Icon name="phone" color={COLORS.blue} size={25}/>
+            <Text style={styles.menuItemText}>SMS</Text>
+            <Toggle/>
+        </View>
+
+
         
         
         
@@ -34,5 +50,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginHorizontal: 20,
+      },
+      menuItem: {
+        flexDirection: 'row',
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+       
+      },
+      menuItemText: {
+        color: '#777777',
+        marginLeft: 20,
+        fontWeight: '600',
+        fontSize: 16,
+        lineHeight: 26,
       },
 });

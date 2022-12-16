@@ -10,7 +10,7 @@ export default function ListAnomalias({ data }) {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        navigation.navigate("DashMaquinas");
+        navigation.navigate("DashMaquinas", { id: data.id });
       }}
     >
       <Icon
@@ -68,5 +68,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "red",
     fontWeight: "bold",
-  },
+  },
 });

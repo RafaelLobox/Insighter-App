@@ -8,14 +8,7 @@ import COLORS from "../../components/Colors";
 import maquinaService from "../../services/MaquinaService";
 import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
-} from "react-native-chart-kit";
+
 
 export default function EditMaquinas({ route }, props) {
   const navigation = useNavigation();
@@ -98,6 +91,7 @@ export default function EditMaquinas({ route }, props) {
           Insira os Dados da Máquina
         </Text>
         <View style={{ marginVertical: 20 }}>
+          
           <Input
             label="Nome do Setor:"
             iconName="robot-industrial"

@@ -1,10 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import COLORS from "./Colors";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Latest({ data }) {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate("DashMaquinas", { id: data.id });
+      }}
+    >
       <Text style={{ fontSize: 14, color: "grey", fontWeight: "bold" }}>
         {data.data_hr}
       </Text>
@@ -41,5 +48,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "red",
     fontWeight: "bold",
-  },
+  },
 });
