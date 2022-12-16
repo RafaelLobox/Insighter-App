@@ -17,7 +17,37 @@ class MaquinaService {
         return Promise.resolve(response);
       })
       .catch((error) => {
-        Alert.alert("errou");
+        return Promise.reject(error);
+      });
+  }
+
+  async cadastrarMaquina(data) {
+    const token = await AsyncStorage.getItem("TOKEN");
+
+    return axios
+      .post(
+        `${URL}maquinas`,
+        {
+          id_setor: data.id_setor,
+          nome: data.nome,
+          temperatura_min: data.temperatura_min,
+          temperatura_max: data.temperatura_max,
+          vibracao_min: data.vibracao_min,
+          vibracao_max: data.vibracao_max,
+          ruido_min: data.ruido_min,
+          ruido_max: data.ruido_max,
+          status: "true",
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        return Promise.resolve(response);
+      })
+      .catch((error) => {
         return Promise.reject(error);
       });
   }

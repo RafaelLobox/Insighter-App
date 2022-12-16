@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image, Animated
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../../components/Colors';
 import { VictoryBar, VictoryChart, VictoryTheme, VictoryLine } from "victory-native";
+import Modal from '../../components/modal';
+import Open from '../../components/modal';
 
 
 export default function DashMaquinas(props) {
@@ -15,8 +17,31 @@ export default function DashMaquinas(props) {
             }}
           name='keyboard-backspace' size={25}/>
         <Text style={{fontSize: 20, fontWeight: 'bold', paddingLeft: 12}}>Dash Máquinas</Text>
+        <TouchableOpacity>
+            <View style={styles.iconContainer}>
+              <Icon
+                onPress={() =>{props.navigation.navigate("EditMaquinas");
+              }} name="pen" color="white" size={24} />
+            </View>
+          </TouchableOpacity>
+          <Open/>
+        </View>
+        
+
+        
+          {/* <Open/> */}
+
+      {/* <ScrollView>
+        <View style={{flexDirection: 'row', justifyContent: 'center', alignContent:'center'}}>
+      <TouchableOpacity>
+        <View style={styles.iconContainer}>
+          <Icon
+             onPress={() =>{props.navigation.navigate("EditMaquinas");
+           }} name="draw-pen" color="white" size={24} />
+        </View>
+      </TouchableOpacity>
+      <Open/>
       </View>
-      <ScrollView style={styles.chart}>
         <View style={styles.boxChart}>
          <Text style={styles.title}>Últimas Máquinas cadastradas</Text>
 
@@ -77,9 +102,7 @@ export default function DashMaquinas(props) {
               />
           </VictoryChart>
         </View>
-
-
-      </ScrollView>
+      </ScrollView> */}
       
 
 
@@ -105,8 +128,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   iconContainer: {
-    height: 50,
-    width: 50,
+    marginTop: 6,
+    padding: 10,
+    marginLeft: 60,
     backgroundColor: 'blue',
     // elevation: 40,
     borderRadius: 25,
@@ -119,7 +143,6 @@ const styles = StyleSheet.create({
   boxChart:{
     backgroundColor: COLORS.white,
     // marginTop: 20,
-    elevation: 5,
   },
   title:{
     fontSize: 18,

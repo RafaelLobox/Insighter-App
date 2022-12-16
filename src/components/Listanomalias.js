@@ -4,7 +4,7 @@ import COLORS from "./Colors";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function ListMaquinas({ data }) {
+export default function ListAnomalias({ data }) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -13,20 +13,20 @@ export default function ListMaquinas({ data }) {
         navigation.navigate("DashMaquinas");
       }}
     >
-  <Icon
-            style={styles.icon}
-            name="robot-industrial"
-            size={32}
-            color={COLORS.blue}
-          />
+      <Icon
+        style={styles.icon}
+        name="robot-industrial"
+        size={32}
+        color={COLORS.blue}
+      />
 
-        <View style={styles.content}>
-          
+      <View style={styles.content}>
         <Text style={{ fontSize: 18, color: "black", fontWeight: "bold" }}>
-          {data.nome_maquina}
+          {data.nome}
         </Text>
+
         <Text style={{ fontSize: 11, color: COLORS.blue, fontWeight: "bold" }}>
-          {data.nome_setor}
+          {data.data_hr}
         </Text>
       </View>
       <Icon name="arrow-right" size={25} />
@@ -59,5 +59,14 @@ const styles = StyleSheet.create({
     marginBottom: 2,
     marginRight: 140,
   },
-  
+  statusOne: {
+    fontSize: 14,
+    color: "#25e6b1",
+    fontWeight: "bold",
+  },
+  statusTwo: {
+    fontSize: 14,
+    color: "red",
+    fontWeight: "bold",
+  },
 });

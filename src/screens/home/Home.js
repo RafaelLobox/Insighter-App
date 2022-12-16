@@ -1,9 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, FlatList, TouchableOpacity } from 'react-native';
-import COLORS from '../../components/Colors';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Latest from '../../components/Latest';
-import LatestMachines from '../../components/LatestMachines';
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
+import COLORS from "../../components/Colors";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Latest from "../../components/Latest";
+import LatestMachines from "../../components/LatestMachines";
 import { useEffect, useState } from "react";
 import industriaService from "../../services/IndustriaService";
 import logMaquinaService from "../../services/LogMaquinaService";
@@ -45,48 +53,59 @@ export default function HomeScreen(props) {
   }, []);
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <View style={styles.header}>
-        <View style={{paddingBottom: 15,}}>
-          <Text style={{fontSize: 30, fontWeight: 'bold'}}>
+        <View style={{ paddingBottom: 15 }}>
+          <Text style={{ fontSize: 30, fontWeight: "bold" }}>
             Seja Bem-vindo!
           </Text>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={{fontSize: 30, fontWeight: 'bold'}}>Olá, </Text>
-            <Text style={{fontSize: 30, fontWeight: 'bold', color: COLORS.blue}}>{industria.nome}!</Text>
+          <View style={{ flexDirection: "row" }}>
+            <Text style={{ fontSize: 30, fontWeight: "bold" }}>Olá, </Text>
+            <Text
+              style={{ fontSize: 30, fontWeight: "bold", color: COLORS.blue }}
+            >
+              {industria.nome}!
+            </Text>
           </View>
         </View>
-        <Icon 
-          onPress={() =>{
+        <Icon
+          onPress={() => {
             props.navigation.navigate("Perfil");
           }}
-        name='account' size={38} color={COLORS.blue} />
+          name="account"
+          size={38}
+          color={COLORS.blue}
+        />
       </View>
-      
+
       <ScrollView>
         <TouchableOpacity
-         onPress={() =>{
-          props.navigation.navigate("Notificacoes");
-        }}
-        style={styles.notification}>
-          <Icon name='alert-circle' size={85} color={COLORS.blue}/>
+          onPress={() => {
+            props.navigation.navigate("Notificacoes");
+          }}
+          style={styles.notification}
+        >
+          <Icon name="alert-circle" size={85} color={COLORS.blue} />
           <View>
-            <Text style={{fontSize: 20, fontWeight: 'bold', marginBottom: 5}}>Anomalia Detectada!</Text>
-            <Text style={{fontSize: 13, fontWeight: 'bold', color: 'grey'}}>Clique para mais informações.</Text>
+            <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 5 }}>
+              Anomalia Detectada!
+            </Text>
+            <Text style={{ fontSize: 13, fontWeight: "bold", color: "grey" }}>
+              Clique para mais informações.
+            </Text>
           </View>
         </TouchableOpacity>
         <Text style={styles.title}>Últimas Máquinas cadastradas</Text>
         <LatestMachines data={maquinas} />
         <Text style={styles.title}>Últimas Anomalias</Text>
 
-        <FlatList 
+        <FlatList
           style={styles.list}
           data={anomalias}
-          keyExtractor={ (item) => String(item.id) }
+          keyExtractor={(item) => String(item.id)}
           showsVerticalScrollIndicator={false}
-          renderItem={({item}) => <Latest data={item}/>}
+          renderItem={({ item }) => <Latest data={item} />}
         />
-
       </ScrollView>
       <StatusBar style="auto" />
     </SafeAreaView>
@@ -94,17 +113,17 @@ export default function HomeScreen(props) {
 }
 
 const styles = StyleSheet.create({
-  header:{
+  header: {
     marginTop: 30,
-    flexDirection:  'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingHorizontal: 20,
   },
-  notification:{
+  notification: {
     backgroundColor: COLORS.white,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     paddingStart: 40,
     paddingEnd: 40,
     marginStart: 14,
@@ -116,26 +135,22 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 10,
     elevation: 5,
   },
-  title:{
+  title: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginLeft: 14,
     marginRight: 14,
     marginTop: 25,
   },
-  list:{
+  list: {
     marginTop: 5,
     marginStart: 14,
     marginEnd: 14,
+  },
 
-  }
-
-
-  
-  
   // container: {
   //   flex: 1,
-  //   backgroundColor: '#F6F4F3', 
+  //   backgroundColor: '#F6F4F3',
   //   fontFamily: 'lucida grande',
   //   // alignItems: 'center',
   //   // justifyContent: 'center',
@@ -152,14 +167,14 @@ const styles = StyleSheet.create({
   //   // borderBottomRightRadius: 15,
   //   // paddingBottom: 5,
   // },
-  // usernameViewPerson: { 
+  // usernameViewPerson: {
   //   height: '100%',
   //   width: '65%',
   //   // backgroundColor: '#FFF',
   //   justifyContent: 'center',
   //   alignItems: 'flex-start',
   //   // marginTop: '15%',
-  //   flexDirection: 'column', 
+  //   flexDirection: 'column',
   //   paddingLeft: '5%',
   //   paddingTop: '5%',
   // },
@@ -177,13 +192,13 @@ const styles = StyleSheet.create({
   //   color: '#482EB5',
   //   fontSize: 22,
   //   fontWeight: 'bold',
-  //   paddingTop: '6%',    
+  //   paddingTop: '6%',
   // },
   // iconPerson: {
   //   // paddingLeft: '2%',
   //   // marginBottom: '5%'
   //     justifyContent: 'flex-start',
-      
+
   // },
   // // iconBell: {
   // //   paddingRight: '2%',
@@ -194,7 +209,7 @@ const styles = StyleSheet.create({
   //   alignItems: 'center',
   //   justifyContent: 'center',
   //   height: '28.1%',
-  //   width: '100%',    
+  //   width: '100%',
   // },
   // notifications: {
   //   backgroundColor: '#F6F4F3',
@@ -202,8 +217,8 @@ const styles = StyleSheet.create({
   //   alignItems: 'center',
   //   justifyContent: 'center',
   //   height: '90%',
-  //   width: '95%', 
-  //   borderRadius: 15, 
+  //   width: '95%',
+  //   borderRadius: 15,
   //   elevation: 8,
   // },
   // warning:{
@@ -217,7 +232,7 @@ const styles = StyleSheet.create({
   // textAnomaliaDescription:{
 
   // },
-  
+
   // lastProblems: {
   //   flexDirection: 'column',
   //   // backgroundColor: 'black',
@@ -276,5 +291,5 @@ const styles = StyleSheet.create({
   //   marginLeft: 'auto',
   //   borderRadius: 15,
   //   elevation: 8,
-  // },  
+  // },
 });
