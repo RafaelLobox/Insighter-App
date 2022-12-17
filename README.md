@@ -169,7 +169,7 @@ npx expo start
       </a>
       <td align="center">
       <a href="https://github.com/fernandaguedess" target="_blank">
-        <img src="https://user-images.githubusercontent.com/93235055/207211672-fcd01181-e39b-49b0-967a-6bd11dd05af4.jpg" width="100px;" alt="Fernanda"/><br>
+        <img src="https://user-images.githubusercontent.com/92796812/208219624-9104b905-d279-4d9a-9b54-4dc44629cd6d.jpg" width="100px;" alt="Fernanda"/><br>
         <sub>
           <b>Fernanda Guedes</b>
         </sub>
